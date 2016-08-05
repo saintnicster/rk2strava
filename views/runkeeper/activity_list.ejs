@@ -1,0 +1,46 @@
+<%# items structure :
+  utc_offset:
+       duration: 2195,
+       start_time: 'Mon, 4 Jul 2016 12:32:00',
+       total_calories: 482,
+       tracking_mode: 'outdoor',
+       total_distance: 5126.15004739545,
+       entry_mode: 'API',
+       has_path: true,
+       source: 'RunKeeper',
+       type: 'Running',
+       uri: '/fitnessActivities/819179670' %>
+
+<script src="/javascripts/jquery-3.0.0.js"></script>
+<table border="1">
+  <tr>
+    <th><input type="checkbox" value="all" id="selectAll" /></th>
+    <th>Type</th>
+    <th>Start Date</th>
+    <th>API URI</th>
+    <th>Distance</th>
+  </tr>
+<% items.forEach(function(item) { %>  <tr>
+     <td><input type="checkbox" name="activitySelected" value="<%= item.uri %>" /></td>
+     <td><%= item.type %></td>
+     <td><%= new Date(item.start_time +' UTC').toString() %></td>
+     <td><%= item.uri %></td>
+     <td><%= Math.round(( distance_unit == "mi" ? (item.total_distance / 1609) :
+                                                  (item.total_distance / 1000) ) *100)/100
+            +' '+ distance_unit %> </td>
+   </tr>
+   <!--<tr>
+     <td></td>
+     <td>item.detail.activity</td>
+     <td></td>
+     <td></td>
+     <td></td>
+   </tr>--><% }); %>
+ </table>
+
+ <script type="text/javascript">
+   $( '#selectAll' ).click(
+       function(event){
+         $("input[name=activitySelected").prop("checked", event.target.checked);
+       });
+ </script>
