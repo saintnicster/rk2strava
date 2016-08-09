@@ -3,11 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  //console.log(req);
   res.render("index",
               {
                 title: "Express Index",
-                rk_token: req.cookies.rk_token
+                rk_token: req.cookies.rk_token,
+                st_token: req.cookies.st_token
               }
             );
 });

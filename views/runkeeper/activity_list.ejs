@@ -23,7 +23,7 @@
 <% items.forEach(function(item) { %>  <tr>
      <td><input type="checkbox" name="activitySelected" value="<%= item.uri %>" /></td>
      <td><%= item.type %></td>
-     <td><%= new Date(item.start_time +' UTC').toString() %></td>
+     <td><%= new Date(item.start_time +' UTC').toString() %><br /><%= item.start_time + "  "+item.utc_offset %></td>
      <td><%= item.uri %></td>
      <td><%= Math.round(( distance_unit == "mi" ? (item.total_distance / 1609) :
                                                   (item.total_distance / 1000) ) *100)/100

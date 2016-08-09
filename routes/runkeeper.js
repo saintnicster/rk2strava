@@ -82,7 +82,8 @@ router.get("/activities",
           function(error, size) {
             rkActivityList.rkBase.settings(
               function(settingError, settings) {
-                rkActivityList.activityList(size.size, 1,
+                console.log(size);
+                rkActivityList.activityList(size, 1,
                   function(listError, activities) {
                     resp.render("runkeeper/activity_list",
                                 {

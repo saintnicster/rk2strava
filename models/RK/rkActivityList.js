@@ -13,7 +13,7 @@ var RkActivityList = function(access_token) {
                             return callback(error, passthrough_data);
                           }
                         );
-  }.bind(this);
+  };//.bind(this);
 
   this.activityList =
     function(pageSize, pagination, callback) {
