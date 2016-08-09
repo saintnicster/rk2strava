@@ -8,8 +8,6 @@ var cookieParser = require("cookie-parser");
 //var favicon = require('serve-favicon');
 var logger = require("morgan");
 
-//var runkeeper = require("./Runkeeper.js");
-
 var routes = require("./routes/index");
 var rk_route = require("./routes/runkeeper");
 var st_route = require("./routes/strava");
